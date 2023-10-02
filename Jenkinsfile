@@ -55,6 +55,15 @@ pipeline{
                         qualityGate(sonarQubeId)
                     }
             }
+        }
+        stage('Maven Build') {
+        when{ expression { params.action == 'create'}}
+            
+            steps{
+                    script{
+                        mavenBuild()
+                    }
+            }
         }         
     }
 }
