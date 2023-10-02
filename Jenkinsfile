@@ -39,7 +39,7 @@ pipeline{
             
             steps{
                     script{
-                        def sonarQubeId = 'sonar-id'
+                        def sonarQubeId = 'sonar-api'
                         
                         staticCode(sonarQubeId)
                     }
