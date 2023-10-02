@@ -44,6 +44,17 @@ pipeline{
                         staticCode(sonarQubeId)
                     }
             }
+        }  
+        stage('Static quality Gate SonarQube') {
+        when{ expression { params.action == 'create'}}
+            
+            steps{
+                    script{
+                        def sonarQubeId = 'sonar-api'
+                        
+                        qualityGate(sonarQubeId)
+                    }
+            }
         }         
     }
 }
