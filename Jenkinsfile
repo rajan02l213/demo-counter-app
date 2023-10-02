@@ -1,3 +1,5 @@
+@Library('my-shared-library') _
+
 pipeline{
     agent any
 
@@ -5,7 +7,10 @@ pipeline{
         stage('Git Checkout') {
             steps{
                 script{
-                    git branch: 'main', url: 'https://github.com/rajan02l213/demo-counter-app.git'
+                    gitCheckout{
+                        branch: "main"
+                        url: "https://github.com/rajan02l213/demo-counter-app.git"
+                    }
                 }
             }
         }
