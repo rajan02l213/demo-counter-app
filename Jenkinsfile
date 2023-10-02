@@ -33,6 +33,15 @@ pipeline{
                         mvnIntegrationTest()
                     }
             }
-        }        
+        }     
+        stage('Static Code Analysis Sonar Test') {
+        when{ expression { param.action == 'create'}}
+            
+            steps{
+                    script{
+                        staticCode()
+                    }
+            }
+        }         
     }
 }
